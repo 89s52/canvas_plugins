@@ -1,5 +1,6 @@
 var canvasWidth = Math.min(600,window.innerWidth-20);
 var canvasHeight = canvasWidth;
+var maxLineWidth = 30,minLineWidth = 1,maxV = 10,minV = 0.1;
 
 // 设置线条颜色
 var strokeColor = "black";
@@ -24,7 +25,17 @@ canvas.height = canvasHeight;
 
 drawGrid();
 
+var clearbtn = document.getElementById("clear_btn");
+clearbtn.onclick = function(){
+	context.clearRect(0,0,canvasWidth,canvasHeight);
+	drawGrid();
+}
 $("#controller").css("width",canvasHeight+"px");
+$(".color_btn").click(function(){
+	$(".color_btn").removeClass("color_btn_selected");
+	$(this).addClass("color_btn_selected");
+	strokeColor = $(this).css("background-color");
+})
 
 canvas.onmousedown = function(event){
 	event.preventDefault();
@@ -99,17 +110,8 @@ function moveStroke(point){
 	lastLineWidth = lineWidth;
 }
 
-var clearbtn = document.getElementById("clear_btn");
-clearbtn.onclick = function(){
-	context.clearRect(0,0,canvasWidth,canvasHeight);
-	drawGrid();
-}
 
-$(".color_btn").click(function(){
-	$(".color_btn").removeClass("color_btn_selected");
-	$(this).addClass("color_btn_selected");
-	strokeColor = $(this).css("background-color");
-})
+
 
 // 坐标系转换
 function windowToCanvas(x,y){
@@ -122,7 +124,6 @@ function calDistance(loc1,loc2){
 	return Math.sqrt((loc2.x-loc1.x)*(loc2.x-loc1.x)+(loc2.y-loc1.y)*(loc2.y-loc1.y));
 }
 
-var maxLineWidth = 30,minLineWidth = 1,maxV = 10,minV = 0.1;
 
 // 计算两点之间的移动速度
 function calLineWidth(distance,time){

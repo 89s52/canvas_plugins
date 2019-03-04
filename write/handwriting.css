@@ -1,9 +1,9 @@
-#canvas{
+#canvas,#canvas2{
 	display: block;
 	margin: 0 auto;
 }
 
-#controller{
+#controller,#controller2{
 	margin: 0 auto;
 }
 .op_btn{
@@ -30,7 +30,7 @@
 	clear: both;
 }
 
-.color_btn{
+.color_btn,.color_btn2{
 	float: left;
 	margin: 10px 10px 0 0;
 	border: 5px solid #fff;
@@ -40,7 +40,7 @@
 	cursor: pointer;
 }
 
-.color_btn:hover{
+.color_btn:hover,.color_btn2:hover{
 	border: 5px solid violet;
 }
 
@@ -48,26 +48,26 @@
 	border: 5px solid blueviolet;
 }
 
-#black_btn{
+.black_btn{
 	background-color: black;
 }
 
-#blue_btn{
+.blue_btn{
 	background-color: blue;
 }
 
-#green_btn{
+.green_btn{
 	background-color: green;
 }
 
-#red_btn{
+.red_btn{
 	background-color: red;
 }
 
-#orange_btn{
+.orange_btn{
 	background-color: orange;
 }
 
-#pink_btn{
+.pink_btn{
 	background-color: pink;
 }
